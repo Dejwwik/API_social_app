@@ -1,0 +1,1 @@
+print(f"app/routers/__init__.py package: {__package__}")
