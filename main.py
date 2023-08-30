@@ -9,6 +9,8 @@ import uvicorn
 from app.routers import post, user, auth, vote
 from app.database import engine
 
+from os import environ
+
 origins = ["https://www.google.com", "*"]
 
 app = FastAPI()
@@ -33,6 +35,6 @@ app.include_router(vote.router)
 
 #Run server in localhost
 if __name__ == "__main__":
-    uvicorn.run("main:app")
+    uvicorn.run("main:app", host="0.0.0.0", port=environ.get("PORT") if environ.get("PORT") else 8000)
  
 
