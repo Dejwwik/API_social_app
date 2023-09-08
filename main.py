@@ -9,7 +9,7 @@ import uvicorn
 from app.routers import post, user, auth, vote
 from app.database import engine
 
-from os import environ
+from os import umask, environ
 
 origins = ["https://www.google.com", "*"]
 
@@ -34,7 +34,7 @@ app.include_router(vote.router)
 
 
 #Run server in localhost
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=environ.get("PORT") if environ.get("PORT") else 8000)
+# if __name__ == "__main__":
+#     uvicorn.run("main:app", host="127.0.0.1", port=environ.get("PORT") if environ.get("PORT") else 8000)
  
 
